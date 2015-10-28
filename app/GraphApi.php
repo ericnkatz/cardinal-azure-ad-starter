@@ -44,8 +44,9 @@ class GraphApi
     }
 
     public function getToken() {
-        $token = Cache::remember('graph_token', 59, function() {
-            return $this->fetchToken();
+        $token = Cache::remember('token', 59, function() {
+            $token = $this->fetchToken();
+            return $token->access_token;
         });
 
         return $token;
@@ -67,7 +68,7 @@ class GraphApi
 
             $token_response = $token_request->getBody();
 
-            $token = json_decode($token_response)->access_token;
+            $token = json_decode($token_response);
 
             return $token;
 
