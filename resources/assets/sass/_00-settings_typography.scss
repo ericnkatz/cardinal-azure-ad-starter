@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Average+Sans); // font-family: 'Average Sans', sans-serif;
+
+$font-family: Arial, sans-serif;
+$font-family-body: $font-family;
+$font-family-button: $font-family;
+$base-font-size: 16px;
+$weight-light: 300;
+$weight-normal: normal;
+$weight-bold: bold;
+$weight-ultra: 700;
+
+$h1: 2rem; // 2em
+$h2: 1.5rem; // 1.5em
+$h3: 1.17rem; // 1.17em
+$h4: 1rem; // 1em
+$h5: 0.75rem; // .83em
+$h6: 0.625rem; // .067em
+
+$font-primary: $font-family;
+$font-secondary: $font-family;
+
+$header-font: 'Average Sans', sans-serif;
+$header-font-secondary: $font-primary;

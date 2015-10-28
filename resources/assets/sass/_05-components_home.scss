@@ -1,0 +1,14 @@
+.hero {
+
+	&__header {
+		width: 100%;
+		max-width: 750px;
+		margin:20vh auto 0;
+
+		font-family: $header-font;
+		font-size: 4em;
+		font-weight: normal;
+		color: $color-white;
+		text-align: center;
+	}
+}

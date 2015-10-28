@@ -1,0 +1,10 @@
+html {
+	height:100%;
+}
+
+body {
+	background: linear-gradient(135deg, $color-primary-dark, $color-primary-light);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	min-height: 100%;
+}

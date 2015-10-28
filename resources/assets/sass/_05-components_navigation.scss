@@ -1,0 +1,55 @@
+.navigation {
+	overflow: auto;
+	background: $color-white;
+	box-shadow: 0 0 5px #333;
+
+	&__list {
+		margin: 0;
+		padding: 0 1.5em;
+	}
+
+	&__item {
+		display: inline;
+	}
+
+	&__link {
+		text-decoration: none;
+		display: block;
+		line-height: 1;
+		color: $color-primary-dark;
+
+		&.--normal {
+			float: right;
+			padding: 0.4em 0.6em;
+			margin: 0.5em;
+			border: 1px solid;
+			border-radius: 4px;
+		}
+
+		&.--alternate {
+			color: $color-white;
+			background: $color-primary-dark;
+			border-color: $color-primary-dark;
+		}
+
+		&.--cardinal {
+			float: left;
+			padding: 0;
+
+			.cardinal-solutions {
+				width: 35px;
+				margin-top: 0.5em;
+			}
+			.swurve {
+				fill: $color-primary-dark;
+			}
+			.square {
+				fill: $color-primary-light;
+			}
+		}
+
+		&.--alternate {
+
+		}
+	}
+}
