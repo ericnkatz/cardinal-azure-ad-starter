@@ -37,10 +37,10 @@ class GraphApi
     }
 
     public function authorize($code, $session_state) {
-        return $this->fetchToken([
+        return json_encode( $this->fetchToken([
             'code' => $code,
             'grant_type' => 'authorization_code'
-        ]);
+        ]) );
     }
 
     public function getToken() {
