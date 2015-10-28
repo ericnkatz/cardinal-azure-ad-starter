@@ -36,6 +36,12 @@ class GraphApi
 
     }
 
+    public function authorize($code, $session_state) {
+        return $this->fetchToken([
+            'code' => $code,
+            'grant_type' => 'authorization_code'
+        ]);
+    }
 
     public function getToken() {
         $token = Cache::remember('graph_token', 59, function() {
@@ -45,18 +51,18 @@ class GraphApi
         return $token;
     }
 
-    public function fetchToken() {
+    public function fetchToken($params = []) {
         $oauth_request = 'https://login.windows.net/' . $this->tenant . '/oauth2/token';
 
         try {
 
             $token_request = $this->http->post($oauth_request, [
-                'form_params' => [
+                'form_params' => array_merge([
                     'client_id' => $this->client,
                     'client_secret' => $this->secret,
                     'grant_type' => 'client_credentials',
                     'resource' => $this->resource
-                ]
+                ], $params)
             ]);
 
             $token_response = $token_request->getBody();
@@ -102,7 +108,7 @@ class GraphApi
             }
 
         }
-        
+
         $invalidObj = (object) null;
         $invalidObj->error = 'Invalid Endpoint';
         return $invalidObj;

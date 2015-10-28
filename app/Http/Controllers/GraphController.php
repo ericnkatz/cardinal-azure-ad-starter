@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\GraphApi;
 use App\ApiTransformer as Transform;
 
@@ -18,6 +19,10 @@ class GraphController extends Controller
 
     public function login() {
     	return redirect('http://login.microsoftonline.com/' . $this->graph->tenant . '/oauth2/authorize?client_id=' . $this->graph->client . '&response_type=code');
+    }
+
+    public function token(Request $request) {
+    	return $this->graph->authorize( $request->code, $request->session_state );
     }
 
 	public function endpoint($endpoint) {

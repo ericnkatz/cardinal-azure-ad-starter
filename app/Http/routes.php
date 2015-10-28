@@ -16,9 +16,7 @@ Route::get('/', 'PagesController@index');
 Route::get('login', 'GraphController@login');
 
 
-Route::get('sign-on', function() {
-	return $_REQUEST;
-});
+Route::get('sign-on', 'GraphController@token');
 
 Route::get('sign-on/callback', function() {
 	return $_REQUEST;
