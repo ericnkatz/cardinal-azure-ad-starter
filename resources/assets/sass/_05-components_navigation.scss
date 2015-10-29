@@ -1,9 +1,10 @@
 %normal {
 	float: right;
-	padding: 0.4em 0.6em;
+	padding: 0.1em 0.6em;
 	margin: 0.5em;
 	border: 1px solid;
 	border-radius: 4px;
+	line-height: 1.8;
 }
 
 .navigation {
@@ -49,15 +50,25 @@
 
 		}
 	}
-
 	&__link, &__user {
 		text-decoration: none;
 		display: block;
 		line-height: 1;
 		color: $color-primary-dark;
-
-		& .--normal {
+		
+		&.--normal {
 			@extend %normal;
 		}
+
+		.user__avatar {
+		    float: left;
+		    height: 27px;
+		    border-radius: 50%;
+		    margin-right: 0.6em;
+		}
+	}
+	&__user.--normal{
+	    padding: 0.1em 0.6em 0.1em 0.2em;
+	    line-height: 1.8;
 	}
 }
