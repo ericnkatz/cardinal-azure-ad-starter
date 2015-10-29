@@ -38,6 +38,7 @@ class GraphApi
     }
 
     public function authorize($code, $session_state) {
+
         $token = $this->fetchToken([
             'code' => $code,
             'grant_type' => 'authorization_code'
@@ -45,7 +46,7 @@ class GraphApi
 
         $keys = $this->loadKeysFromAzure();
 
-        return JWT::decode($token->id_token, $keys, array('RS256'));
+        return JWT::decode($token->id_token, $keys, ['HS512']);
     }
 
     /**
@@ -74,7 +75,7 @@ class GraphApi
         $object_cert = openssl_x509_read($string_certText);
         $object_pubkey = openssl_pkey_get_public($object_cert);
         $array_publicKey = openssl_pkey_get_details($object_pubkey);
-        
+
         return $array_publicKey['key'];
     }
 
