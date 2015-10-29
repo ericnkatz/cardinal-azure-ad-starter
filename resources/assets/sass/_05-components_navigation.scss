@@ -1,3 +1,11 @@
+%normal {
+	float: right;
+	padding: 0.4em 0.6em;
+	margin: 0.5em;
+	border: 1px solid;
+	border-radius: 4px;
+}
+
 .navigation {
 	overflow: auto;
 	background: $color-white;
@@ -10,29 +18,18 @@
 
 	&__item {
 		display: inline;
-	}
 
-	&__link {
-		text-decoration: none;
-		display: block;
-		line-height: 1;
-		color: $color-primary-dark;
-
-		&.--normal {
-			float: right;
-			padding: 0.4em 0.6em;
-			margin: 0.5em;
-			border: 1px solid;
-			border-radius: 4px;
+		& .--normal {
+			@extend %normal;
 		}
 
-		&.--alternate {
+		& .--alternate {
 			color: $color-white;
 			background: $color-primary-dark;
 			border-color: $color-primary-dark;
 		}
 
-		&.--cardinal {
+		& .--cardinal {
 			float: left;
 			padding: 0;
 
@@ -48,8 +45,19 @@
 			}
 		}
 
-		&.--alternate {
+		& .--alternate {
 
+		}
+	}
+
+	&__link, &__user {
+		text-decoration: none;
+		display: block;
+		line-height: 1;
+		color: $color-primary-dark;
+
+		& .--normal {
+			@extend %normal;
 		}
 	}
 }

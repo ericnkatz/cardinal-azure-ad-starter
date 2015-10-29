@@ -12,7 +12,10 @@
         </li>
         @if($user)
             <li class="navigation__item">
-                <a class="navigation__link --normal" href="/login">Welcome, {{ $user->username }}</a>
+                <a class="navigation__user --normal" href="/profile">
+                    <img class="user__avatar" src="{{ $user->gravatar }}">
+                    {{ $user->username }}
+                </a>
             </li>
         @else
             <li class="navigation__item">
