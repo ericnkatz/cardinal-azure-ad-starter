@@ -1,7 +1,7 @@
 <nav class="navigation">
     <ul class="navigation__list">
         <li class="navigation__item">
-            <a class="navigation__link --cardinal" href="/">
+            <a class="navigation__link cardinal" href="/">
                 <svg viewBox="0 0 136 136" class="cardinal-solutions">
                     <g>
                         <path class="swurve" d="M75.815 9.336l-14.08-8.143s-3.705-2.267-9.13 2.31L6.61 44.753s-8.215 6.182-6.198 11.59L21.89 118.92s3.3 13.294 14.098 6.997L62.7 103.04s9.36-6.484 5.06-17.396c0 0-.673-1.603-1.3-2.414L55.485 68.393s-7.077-10.005-5.543-19.088c0 0 .598-7.692 10.647-18.152l12.47-11.177s4.456-3.472 4.39-7.24c0 0 .382-1.988-1.635-3.4"/>
@@ -12,14 +12,14 @@
         </li>
         @if($user)
             <li class="navigation__item">
-                <a class="navigation__user --normal" href="#">
+                <a class="navigation__user normal" href="#">
                     <img class="user__avatar" src="{{ $user->gravatar }}">
                     {{ $user->username }}
                 </a>
             </li>
         @else
             <li class="navigation__item">
-                <a class="navigation__link --normal" href="/login">Login</a>
+                <a class="navigation__link normal" href="/login">Login</a>
             </li>
         @endif
     </ul>

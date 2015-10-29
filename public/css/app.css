@@ -373,7 +373,7 @@ body {
   color: #FFF;
   text-align: center; }
 
-.navigation__item .--normal, .navigation__link.--normal, .navigation__user.--normal {
+.navigation__item .normal, .navigation__link.normal, .navigation__user.normal {
   float: right;
   padding: 0.1em 0.6em;
   margin: 0.5em;
@@ -390,19 +390,19 @@ body {
     padding: 0 1.5em; }
   .navigation__item {
     display: inline; }
-    .navigation__item .--alternate {
+    .navigation__item .alternate {
       color: #FFF;
       background: #172952;
       border-color: #172952; }
-    .navigation__item .--cardinal {
+    .navigation__item .cardinal {
       float: left;
       padding: 0; }
-      .navigation__item .--cardinal .cardinal-solutions {
+      .navigation__item .cardinal .cardinal-solutions {
         width: 35px;
         margin-top: 0.5em; }
-      .navigation__item .--cardinal .swurve {
+      .navigation__item .cardinal .swurve {
         fill: #172952; }
-      .navigation__item .--cardinal .square {
+      .navigation__item .cardinal .square {
         fill: #00A6E6; }
   .navigation__link, .navigation__user {
     text-decoration: none;
@@ -414,7 +414,7 @@ body {
       height: 27px;
       border-radius: 50%;
       margin-right: 0.6em; }
-  .navigation__user.--normal {
+  .navigation__user.normal {
     padding: 0.1em 0.6em 0.1em 0.2em;
     line-height: 1.8; }
 

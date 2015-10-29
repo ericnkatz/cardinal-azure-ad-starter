@@ -20,17 +20,17 @@
 	&__item {
 		display: inline;
 
-		& .--normal {
+		& .normal {
 			@extend %normal;
 		}
 
-		& .--alternate {
+		& .alternate {
 			color: $color-white;
 			background: $color-primary-dark;
 			border-color: $color-primary-dark;
 		}
 
-		& .--cardinal {
+		& .cardinal {
 			float: left;
 			padding: 0;
 
@@ -46,7 +46,7 @@
 			}
 		}
 
-		& .--alternate {
+		& .alternate {
 
 		}
 	}
@@ -56,7 +56,7 @@
 		line-height: 1;
 		color: $color-primary-dark;
 		
-		&.--normal {
+		&.normal {
 			@extend %normal;
 		}
 
@@ -67,7 +67,7 @@
 		    margin-right: 0.6em;
 		}
 	}
-	&__user.--normal{
+	&__user.normal{
 	    padding: 0.1em 0.6em 0.1em 0.2em;
 	    line-height: 1.8;
 	}
