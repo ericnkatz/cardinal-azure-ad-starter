@@ -2,7 +2,8 @@
 
 namespace App;
 
-use Cache;
+use Cache, Auth;
+use App\User;
 use GuzzleHttp\Client as http;
 use \Firebase\JWT\JWT;
 
@@ -46,9 +47,26 @@ class GraphApi
 
         $jwt = explode('.', $token->id_token);
 
-        $user = json_decode(base64_decode($jwt[1]))->upn;
+        $oauth_user = json_decode(base64_decode($jwt[1]));
+        
+        $email = explode('@', $oauth_user->unique_name);
+        $username = $email[0];
 
-        return $user;
+        $user = User::where('username', $username)->first();
+
+        if(!$user) {
+            $user = User::create([
+                'username' => $username,
+                'first_name' => $oauth_user->given_name,
+                'last_name' => $oauth_user->family_name,
+                'email' => $oauth_user->upn,
+                'password' => bcrypt($oauth_user->aud),
+            ]);
+        }
+
+        Auth::login($user);
+
+        return redirect('/');
        
     }
 
