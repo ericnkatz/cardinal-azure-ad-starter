@@ -14,20 +14,14 @@
 Route::get('/', 'PagesController@index');
 
 Route::get('login', 'GraphController@login');
-
 Route::get('logout', 'Auth\AuthController@getLogout');
-
-
 Route::get('sign-on', 'GraphController@token');
 
-Route::get('sign-on/callback', function() {
-	return $_REQUEST;
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('{endpoint}/s/{skiptoken}', 'GraphController@endpointWithPagination');
+	Route::get('{endpoint}/{item}', 'GraphController@endpointWithItem');
+	Route::get('{endpoint}', 'GraphController@endpoint');
 });
 
-
-Route::get('api/{endpoint}/s/{skiptoken}', 'GraphController@endpointWithPagination');
-
-Route::get('api/{endpoint}/{item}', 'GraphController@endpointWithItem');
-
-Route::get('api/{endpoint}', 'GraphController@endpoint');
 
