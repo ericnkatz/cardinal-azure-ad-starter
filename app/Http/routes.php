@@ -23,5 +23,3 @@ Route::group(['prefix' => 'api'], function () {
 	Route::get('{endpoint}/{item}', 'GraphController@endpointWithItem');
 	Route::get('{endpoint}', 'GraphController@endpoint');
 });
-
-
