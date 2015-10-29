@@ -15,6 +15,8 @@ Route::get('/', 'PagesController@index');
 
 Route::get('login', 'GraphController@login');
 
+Route::get('logout', 'Auth\AuthController@getLogout');
+
 
 Route::get('sign-on', 'GraphController@token');
 
