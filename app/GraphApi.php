@@ -17,6 +17,8 @@ class GraphApi
 
     public $resource;
 
+    public $redirect_uri;
+
     public $token;
 
     public $http;
@@ -31,6 +33,7 @@ class GraphApi
         $this->secret = env('AZURE_AD_SECRET'); 
         $this->tenant = env('AZURE_AD_TENANT'); 
         $this->resource = env('AZURE_AD_RESOURCE'); 
+        $this->redirect_uri = env('AZURE_AD_REDIRECTURI');
         $this->http = $http;
 
         $this->token = $this->getToken();
@@ -89,6 +92,7 @@ class GraphApi
                     'client_id' => $this->client,
                     'client_secret' => $this->secret,
                     'grant_type' => 'client_credentials',
+                    'redirect_uri' => route('token'),
                     'resource' => $this->resource
                 ], $params)
             ]);
@@ -100,7 +104,7 @@ class GraphApi
             return $token;
 
         } catch (Exception $e) {
-            //  print_r($e->getResponse());
+            print_r($e->getResponse());
 
         }
     }

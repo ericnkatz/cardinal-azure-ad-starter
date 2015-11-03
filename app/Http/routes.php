@@ -13,13 +13,13 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::get('login', 'GraphController@login');
-Route::get('logout', 'Auth\AuthController@getLogout');
-Route::get('sign-on', 'GraphController@token');
+Route::get('login', ['as' => 'login', 'uses' => 'GraphController@login']);
+Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
+Route::get('sign-on', ['as' => 'token', 'uses' => 'GraphController@token']);
 
 
-Route::group(['prefix' => 'api'], function () {
-    Route::get('{endpoint}/s/{skiptoken}', 'GraphController@endpointWithPagination');
-	Route::get('{endpoint}/{item}', 'GraphController@endpointWithItem');
-	Route::get('{endpoint}', 'GraphController@endpoint');
+Route::group(['as' => 'api::', 'prefix' => 'api'], function () {
+    Route::get('{endpoint}/s/{skiptoken}',  ['uses' => 'GraphController@endpointWithPagination']);
+	Route::get('{endpoint}/{item}',  ['as' => 'item', 'uses' => 'GraphController@endpointWithItem']);
+	Route::get('{endpoint}',  ['as' => 'endpoint', 'uses' => 'GraphController@endpoint']);
 });

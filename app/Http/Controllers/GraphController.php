@@ -18,7 +18,7 @@ class GraphController extends Controller
     }
 
     public function login() {
-    	return redirect('http://login.microsoftonline.com/' . $this->graph->tenant . '/oauth2/authorize?client_id=' . $this->graph->client . '&response_type=code');
+    	return redirect('http://login.microsoftonline.com/' . $this->graph->tenant . '/oauth2/authorize?client_id=' . $this->graph->client . '&response_type=code' . '&redirect_uri=' . route('token'));
     }
 
     public function token(Request $request) {
