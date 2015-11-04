@@ -43,6 +43,10 @@ class GraphApi
 
     public function authorize($code, $session_state) {
 
+        if(!$code || !$session_stage) {
+            return redirect()->route('problem');
+        }
+
         $token = $this->fetchToken([
             'code' => $code,
             'grant_type' => 'authorization_code'
@@ -98,14 +102,13 @@ class GraphApi
             ]);
 
             $token_response = $token_request->getBody();
-
+            
             $token = json_decode($token_response);
 
             return $token;
 
-        } catch (Exception $e) {
-            print_r($e->getResponse());
-
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+             return $e->getMessage();
         }
     }
     
@@ -135,8 +138,8 @@ class GraphApi
                 
                 return json_decode( $users_request->getBody() );
 
-            } catch (Exception $e) {
-                //  print_r($e->getResponse());
+            } catch (\GuzzleHttp\Exception\ClientException $e) {
+                return $e->getMessage();
             }
 
         }

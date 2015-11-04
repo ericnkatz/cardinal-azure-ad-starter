@@ -17,6 +17,18 @@ Route::get('login', ['as' => 'login', 'uses' => 'GraphController@login']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 Route::get('sign-on', ['as' => 'token', 'uses' => 'GraphController@token']);
 
+Route::get('problem', function() {
+
+	$message = [
+		'Nothing to see here here!',
+		'Ruh roh!',
+		'Sorry for the interruption!'
+	];
+	shuffle($message);
+
+	return view('error', ['message' => $message[0] ]);
+})->name('problem');
+
 
 Route::group(['as' => 'api::', 'prefix' => 'api'], function () {
     Route::get('{endpoint}/s/{skiptoken}',  ['uses' => 'GraphController@endpointWithPagination']);
