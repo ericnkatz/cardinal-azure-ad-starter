@@ -43,7 +43,7 @@ class GraphApi
 
     public function authorize($code, $session_state) {
 
-        if(!$code || !$session_stage) {
+        if(!$code || !$session_state) {
             return redirect()->route('problem');
         }
 
