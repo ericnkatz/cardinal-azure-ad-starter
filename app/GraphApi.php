@@ -5,7 +5,6 @@ namespace App;
 use Cache, Auth;
 use App\User;
 use GuzzleHttp\Client as http;
-use \Firebase\JWT\JWT;
 
 class GraphApi
 {
@@ -37,7 +36,6 @@ class GraphApi
         $this->http = $http;
 
         $this->token = $this->getToken();
-
 
     }
 
@@ -73,7 +71,7 @@ class GraphApi
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect()->route('profile');
        
     }
 

@@ -7,6 +7,9 @@ use Illuminate\Contracts\Auth\Guard;
 
 class Authenticate
 {
+    protected $loginPath = '/login';
+    protected $redirectPath = '/profile';
+
     /**
      * The Guard implementation.
      *
@@ -38,7 +41,7 @@ class Authenticate
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                return redirect()->guest($this->loginPath);
             }
         }
 

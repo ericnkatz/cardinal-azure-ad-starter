@@ -12,7 +12,7 @@
         </li>
         @if($user)
             <li class="navigation__item">
-                <a class="navigation__user normal" href="#">
+                <a class="navigation__user normal" href="{{ route('profile') }}">
                     <img class="user__avatar" src="{{ $user->gravatar }}">
                     {{ $user->username }}
                 </a>

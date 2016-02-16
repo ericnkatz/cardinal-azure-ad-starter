@@ -29,6 +29,10 @@ Route::get('problem', function() {
 	return view('error', ['message' => $message[0] ]);
 })->name('problem');
 
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('profile/refresh', ['as' => 'update_profile', 'uses' => 'PagesController@updateProfile']);
+	Route::get('profile', ['as' => 'profile', 'uses' => 'PagesController@getProfile']);
+});
 
 Route::group(['as' => 'api::', 'prefix' => 'api'], function () {
     Route::get('{endpoint}/s/{skiptoken}',  ['uses' => 'GraphController@endpointWithPagination']);

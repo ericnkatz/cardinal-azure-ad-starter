@@ -1,12 +1,12 @@
-.hero {
+.hero, .article {
 
 	&__header {
 		width: 100%;
 		max-width: 750px;
-		margin:20vh auto 0;
+		margin:1em auto 0;
 
 		font-family: $header-font;
-		font-size: 4em;
+		font-size: 3rem;
 		font-weight: normal;
 		color: $color-white;
 		text-align: center;

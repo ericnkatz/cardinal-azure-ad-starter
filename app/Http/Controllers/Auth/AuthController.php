@@ -9,7 +9,8 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
-{
+{   
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller

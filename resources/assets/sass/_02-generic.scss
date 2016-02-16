@@ -1,5 +1,11 @@
 html {
 	height:100%;
+	box-sizing: border-box;
+	font-size: $base-font-size;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
 }
 
 body {
@@ -7,4 +13,20 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 	min-height: 100%;
+}
+
+.content {
+	max-width: 95%;
+	width: 1000px;
+	margin:0 auto;
+	padding: 0.25em;
+	border-radius: 0.25em;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
 }
