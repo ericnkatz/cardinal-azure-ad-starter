@@ -20,6 +20,18 @@ class SlackController extends GraphController
         $this->http = $http;
     }
 
+    public function ping() {
+    	$response = [
+			// 'response_type' => 'in_channel',
+			'text' => 'pong!',
+			'username' => 'Cardinal Solutions',
+			'icon_emoji' => ':cardinal:'
+
+		];
+
+    	return response()->json($response);	
+    }
+
 	public function lookup() {
 		$request = $this->request;
 

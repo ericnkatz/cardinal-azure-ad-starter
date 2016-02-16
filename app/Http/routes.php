@@ -18,6 +18,7 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout
 Route::get('sign-on', ['as' => 'token', 'uses' => 'GraphController@token']);
 
 Route::post('slack/lookup', ['as' => 'slackLookup', 'uses' => 'SlackController@lookup']);
+Route::post('slack/ping', ['as' => 'slackLookup', 'uses' => 'SlackController@ping']);
 
 Route::get('problem', function() {
 
