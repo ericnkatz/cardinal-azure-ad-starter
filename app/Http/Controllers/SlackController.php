@@ -23,20 +23,16 @@ class SlackController extends GraphController
 	public function lookup() {
 		$request = $this->request;
 
-		if( $request->input('token', 'failtoken') !== env('SLACK_LOOKUP_TOKEN') ) {
+		if( $request->input('token', 'failtoken') === env('SLACK_LOOKUP_TOKEN') ) {
 
-			$response_url = $request->input('response_url');
 			
 			$response = [
 				'response_type' => 'in_channel',
 				'text' => 'Testing!'
 			];
 
-			$this->http->post($response_url, [
-	            'json' => json_encode($response)
-	        ]);
 
-	        return 'Slack Lookup.';
+	        return response()->json($response);
 		}
 
 		return 'Slack Fail.';
