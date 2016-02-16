@@ -17,6 +17,8 @@ Route::get('login', ['as' => 'login', 'uses' => 'GraphController@login']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 Route::get('sign-on', ['as' => 'token', 'uses' => 'GraphController@token']);
 
+Route::post('slack/lookup', ['as' => 'slackLookup', 'uses' => 'SlackController@lookup']);
+
 Route::get('problem', function() {
 
 	$message = [
