@@ -30,7 +30,7 @@ class SlackController extends GraphController
 			$graph = $this->transform->endpointItem( $this->graph->getEndpointWithItem('users', $shortname . '@cardinalsolutions.com') );
 			$graph = json_decode($graph->getContent(), true);
 			$user = $graph['data'];
-			$text = $user['first'] . ' ' . $user['last'] . "\n" . $user['title'] . "\n" . $user['department'] . "\n" . $user['location'];
+			$text = $user['first'] . ' ' . $user['last'] . "\n" . $user['title'] . " | " . $user['department'] . "\n" . $user['location'];
 			$response = [
 				'response_type' => 'in_channel',
 				'text' => $text,
