@@ -21,7 +21,10 @@ class SlackController extends GraphController
     }
 
 	public function lookup() {
-		if($request->token === env('SLACK_LOOKUP_TOKEN')) {
+		$request = $this->request;
+
+		if( $request->input('token', 'failtoken') !== env('SLACK_LOOKUP_TOKEN') ) {
+
 			$response_url = $request->input('response_url');
 			
 			$response = [
@@ -35,6 +38,8 @@ class SlackController extends GraphController
 
 	        return 'Slack Lookup.';
 		}
+
+		return 'Slack Fail.';
 	}
 
     
