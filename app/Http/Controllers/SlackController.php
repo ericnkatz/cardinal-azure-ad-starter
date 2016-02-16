@@ -29,6 +29,9 @@ class SlackController extends GraphController
 			$response = [
 				'response_type' => 'in_channel',
 				'text' => 'Testing!'
+				'username' => 'Cardinal Solutions',
+				'icon_emoji' => ':cardinal:'
+
 			];
 
 
