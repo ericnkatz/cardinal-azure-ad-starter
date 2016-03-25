@@ -44,7 +44,7 @@ class SlackController extends GraphController
 			$user = $graph['data'];
 			$text = $user['first'] . ' ' . $user['last'] . "\n" . $user['title'] . " | " . $user['department'] . "\n" . $user['location'];
 			$response = [
-				// 'response_type' => 'in_channel',
+				'response_type' => 'in_channel',
 				'text' => $text,
 				'username' => 'Cardinal Solutions',
 				'icon_emoji' => ':cardinal:'
