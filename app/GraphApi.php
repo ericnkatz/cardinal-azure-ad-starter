@@ -53,7 +53,7 @@ class GraphApi
         $jwt = explode('.', $token->id_token);
 
         $oauth_user = json_decode(base64_decode($jwt[1]));
-        
+
         $email = explode('@', $oauth_user->unique_name);
         $username = $email[0];
 
@@ -71,7 +71,7 @@ class GraphApi
 
         Auth::login($user);
 
-        return redirect()->route('profile');
+        return redirect()->route('update_profile');
        
     }
 

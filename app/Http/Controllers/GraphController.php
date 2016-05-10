@@ -27,7 +27,7 @@ class GraphController extends Controller
 
 	public function endpoint($endpoint) {
 		return $this->transform->endpoint( $this->graph->getEndpoint($endpoint) );
-		//return response()->json( $this->graph->getEndpoint($endpoint) );
+		// return response()->json( $this->graph->getEndpoint($endpoint) );
 	}
     
     public function endpointWithItem($endpoint, $item) {

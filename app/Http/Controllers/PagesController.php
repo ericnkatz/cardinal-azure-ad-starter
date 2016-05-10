@@ -44,7 +44,7 @@ class PagesController extends GraphController
 		User::where('email', $user->email)
           ->update($update);
 
-		return $update;
+        return redirect()->route('profile');
 	}
     
 }
